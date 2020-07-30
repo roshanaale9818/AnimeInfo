@@ -1,5 +1,8 @@
 # AnimeInfo
 
+
+view demo
+https://animeinfo-17b02.web.app/home
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.3.
 
 ## Development server
