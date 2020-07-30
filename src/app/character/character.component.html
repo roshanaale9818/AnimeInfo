@@ -1,0 +1,78 @@
+<div class="animeDetail-wrap">
+    <div class="container-wrap">
+        <div class="container">
+            <div class="title-wrap">
+                <h4 class="title">{{characterDetail?.name}}<span style="margin-left: 20px;"><a  style="color:white;text-decoration: none;"[routerLink]="['/home']" routerLinkActive="router-link-active" >Go to Home</a></span></h4>
+            </div>
+            <div class="row">
+                <ngx-spinner bdColor="rgba(51,51,51,0.8) " size="medium" color="#fff" type="square-jelly-box">
+                    <p style="font-size: 20px; color: white ">Loading...</p>
+                </ngx-spinner>
+                <div class="col-12 col-md-12 col-lg-3">
+                    <div class="image-wrap padding-all">
+                        <img src="{{characterDetail?.image_url}}" alt="">
+                        <h4 class="mt-2">{{characterDetail?.name}}</h4>
+                    </div>
+                    <div class="alt-title-wrap padding-all mt-4">
+                        <h5 class="alt-title sub-title">Animeography</h5>
+                        <div class="animes mt-4" *ngFor="let item of animes">
+                            <div class="mt-4 d-flex">
+                                <div class="image-wrap">
+                                    <img class="anime-img" src="{{item?.image_url}}" alt="">
+                                </div>
+                                <div class="anime-info">
+                                    <a href="" class="anime-title" [routerLink]="['/anime',item?.mal_id]" routerLinkActive="router-link-active">{{item?.name}}</a>
+                                    <h5 class="role mt-3">Role: {{item?.role}}</h5>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alt-title-wrap padding-all mt-4">
+                        <h5 class="alt-title sub-title">Mangaography</h5>
+                        <div class="animes mt-4" *ngFor="let item of manga">
+                            <div class="mt-4 d-flex">
+                                <div class="image-wrap">
+                                    <img class="anime-img" src="{{item?.image_url}}" alt="">
+                                </div>
+                                <div class="anime-info">
+                                    <a class="anime-title">{{item?.name}}</a>
+                                    <h5 class="role mt-3">{{item?.role}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-9">
+                    <div class="sub-title">
+                        <span>Details</span>
+                    </div>
+                    <div class="top-detail">
+                        <p [innerHTML]="about" id="about"></p>
+                    </div>
+
+                    <div class="detail-wrap">
+                        <div class="synopsis-wrap">
+                            <div class="heading">
+                                <h1 class="sub-title">Voice Actors</h1>
+                            </div>
+                            <div class="animes mt-4" *ngFor="let item of voiceActors">
+                                <div class="mt-4 d-flex">
+                                    <div class="image-wrap">
+                                        <img class="anime-img" src="{{item?.image_url}}" alt="">
+                                    </div>
+                                    <div class="anime-info">
+                                        <a class="anime-title">{{item?.name}}</a>
+                                        <h5 class="role mt-3">Language: {{item?.language}}</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

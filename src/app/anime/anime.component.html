@@ -1,0 +1,148 @@
+<div class="animeDetail-wrap">
+    <div class="container-wrap">
+        <div class="container">
+            <div class="title-wrap">
+                <h4 class="title">{{animeDetail?.title}} <span style="margin-left:20px;"><a  style="color:#ffffff;text-decoration: underline;"[routerLink]="['/home']" routerLinkActive="router-link-active" >Go to Home</a></span></h4>
+            </div>
+            <div class="row">
+                <ngx-spinner bdColor="rgba(51,51,51,0.8) " size="medium" color="#fff" type="square-jelly-box">
+                    <p style="font-size: 20px; color: white ">Loading...</p>
+                </ngx-spinner>
+                <div class="col-12 col-md-12 col-lg-3">
+                    <div class="image-wrap padding-all">
+                        <img src="{{animeDetail?.image_url}}" alt="">
+                    </div>
+                    <div class="alt-title-wrap padding-all mt-4">
+                        <h5 class="alt-title sub-title">Alternatives Title</h5>
+                        <ul class="alt-list">
+                            <li class="alt-title-description">English : <span>{{animeDetail?.title_english}}</span></li>
+                            <li class="alt-title-description">Japanese : <span>{{animeDetail?.title_japanese}}</span></li>
+                        </ul>
+                    </div>
+                    <div class="detail-wrap padding-all">
+                        <div class="heading">
+                            <h1 class="sub-title">Information</h1>
+                        </div>
+                        <ul class="alt-list">
+                            <li class="alt-title-description">Type : <span>{{animeDetail?.type}}</span></li>
+                            <li class="alt-title-description">Episodes : <span>{{animeDetail?.episodes}}</span></li>
+                            <li class="alt-title-description">Status : <span>{{animeDetail?.status}}</span></li>
+                            <li class="alt-title-description">Aired : <span>{{animeDetail?.aired.string}}</span></li>
+                            <li class="alt-title-description">Primeried : <span>{{animeDetail?.premiered}}</span></li>
+                            <li class="alt-title-description">Brodcasts : <span>{{animeDetail?.broadcast}}</span></li>
+                            <li class="alt-title-description">Duration : <span>{{animeDetail?.duration}}</span></li>
+                            <li class="alt-title-description">Genres: <span *ngFor="let genre of genres">{{genre?.name}}</span></li>
+                            <li class="alt-title-description">Ratings: <span>{{animeDetail?.rating}}</span></li>
+                            <li class="alt-title-description">Studio: <span *ngFor="let studio of studios">{{studio?.name}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-9">
+                    <div class="sub-title">
+                        <span>Details</span>
+                    </div>
+                    <div class="top-detail">
+                        <span class="sub-head">Ranked: <strong>#{{animeDetail?.rank}}</strong></span>
+                        <span class="sub-head">Popularity: <strong>{{animeDetail?.popularity}}</strong></span>
+                        <span class="sub-head">Members: <strong>{{animeDetail?.members}}</strong></span>
+                        <span class="sub-head"><a href="{{animeDetail?.trailer_url}}">#Watch Trailer</a></span>
+                    </div>
+
+                    <div class="detail-wrap">
+                        <div class="synopsis-wrap">
+                            <div class="heading">
+                                <h1 class="sub-title">Synopsis</h1>
+                            </div>
+                            <div class="detail-paragraph">
+                                <p>
+                                    {{animeDetail?.synopsis}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="background-wrap">
+                            <div class="heading">
+                                <h1 class="sub-title">Background</h1>
+                            </div>
+                            <div class="detail-paragraph">
+                                <p>
+                                    {{animeDetail?.background}}
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="related-wrap">
+                            <div class="heading">
+                                <h1 class="sub-title">Related Anime</h1>
+                            </div>
+                            <div class="related-inner">
+                                <ul class="list">
+                                    <li class="alt-title-description">Adaptation: <a href="#" [routerLink]="['/animedetail',item?.mal_id]" routerLinkActive="router-link-active" *ngFor="let item of adaptation">{{item?.name}} ,</a></li>
+                                    <li class="alt-title-description">Side story: <a href="#" [routerLink]="['/animedetail',item?.mal_id]" routerLinkActive="router-link-active" *ngFor="let item of sideStory">{{item?.name}} , </a></li>
+                                    <li class="alt-title-description">Sequel: <a [routerLink]="['/animedetail',item.mal_id]" routerLinkActive="router-link-active" href="#" *ngFor="let item of sequel">{{item?.name}} ,  </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="characters-wrap">
+                            <div class="heading">
+                                <h1 class="sub-title">Characters </h1>
+                            </div>
+                            <div class="characters-inner">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-4 col-md-2 mt-3" *ngFor="let item of character | paginate: { itemsPerPage: 24, currentPage: page }" style="display: inline-block;">
+                                                <a href="#" [routerLink]="['/character',item?.mal_id]" routerLinkActive="router-link-active">
+                                                    <div class="detail">
+                                                        <div class="character">
+                                                            <img style="height: 150px;" src="{{item?.image_url}}" alt="img">
+                                                            <div class="overlay">
+                                                                {{item?.name}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="container mt-40" *ngIf="showPagination">
+                                                <div class="has-text-centered text-center">
+                                                    <pagination-controls class="my-pagination" (pageChange)="page=$event"></pagination-controls>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="theme-wrap">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="heading">
+                                        <h1 class="sub-title">Opening theme</h1>
+                                    </div>
+                                    <div class="theme-inner">
+                                        <ul>
+                                            <li *ngFor="let item of opening_themes">{{item}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="heading">
+                                        <h1 class="sub-title">Ending theme</h1>
+                                    </div>
+                                    <div class="theme-inner">
+                                        <ul>
+                                            <li *ngFor="let item of ending_themes">{{item}}
+                                                <p *ngIf="!item">No themes</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+* {
+    font-family: 'Mukta', sans-serif;
+}
+
+.wrapper {
+    background: #282829;
+    /* height: 550px; */
+    /* padding-top: 40px; */
+}
+
+.logo {
+    color: #ffffff;
+}
+
+.logo img {
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-text strong {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.input-group input {
+    padding-left: 20px;
+    border-radius: 15px 0px 0px 15px;
+    height: 52px;
+}
+
+.submitBtn {
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px 40px;
+    height: 100%;
+    background: #71b601;
+    color: #ffffff;
+}
+
+.heading-wrap h1 {
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=number]:focus,
+[type=text].form-control:focus,
+[type=password].form-control:focus,
+[type=email].form-control:focus,
+[type=tel].form-control:focus,
+[contenteditable].form-control:focus {
+    /* box-shadow: inset 0 -1px 0 #ddd; */
+    outline: none;
+    /* border: none; */
+    box-shadow: none;
+}
+
+.card-title {
+    font-size: 28px;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.card-link {
+    font-size: 18px;
+}

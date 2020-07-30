@@ -1,0 +1,31 @@
+export class Animedetail {
+    aired:any;
+    airing:boolean;
+    background:string;
+    duration:string;
+    ending_themes:[];
+    episodes:number;
+    favorite:number;
+    title_english:string;
+    genres:[];
+    image_url:string;
+    licensors:[];
+    mal_id:number;
+    members:string;
+    opening_themes:[];
+    popularity:number;
+    premiered:string;
+    broadcast:string;
+    producers:[];
+    rank:number;
+    rating:string;
+    related:any;
+    studios:[];
+    score:number;
+    status:string;
+    synopsis:string;
+    title:string;
+    title_japanese:string;
+    trailer_url:string;
+    type:string;
+}

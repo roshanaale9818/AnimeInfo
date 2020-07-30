@@ -1,0 +1,56 @@
+<!-- <app-navbar></app-navbar> -->
+<div class="wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-12 col-lg-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="logo">
+                            <div class="logo-text text-center mt-3">
+                                <h1 class="m-0">AnimeInfo</h1>
+                                <strong>The Free Anime Encylopedia </strong>
+                            </div>
+                            <img src="../../assets/images/childgoku.png" alt="logo">
+                        </div>
+                        <form [formGroup]="searchAnime" (ngSubmit)="onSubmit(searchAnime.value)">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter Anime title Eg.Naruto" formControlName="Name">
+                                <span class="input-group-btn">
+                            <button class="btn submitBtn" type="submit">Search</button>
+                          </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-40">
+            <div class="col-12">
+                <div class="heading-wrap" *ngIf="submitted">
+                    <h1> Search Results for: {{name}}</h1>
+                </div>
+                <ngx-spinner bdColor="rgba(51,51,51,0.8) " size="medium" color="#fff" type="square-jelly-box">
+                    <p style="font-size: 20px; color: white ">Loading...</p>
+                </ngx-spinner>
+            </div>
+            <div class="col-12 col-md-12 col-lg-3  card-wrap mt-4" *ngFor="let anime of anime | paginate: { itemsPerPage: 8, currentPage: page }">
+                <div style="display: inline-block;" class="card " style="width: 100%; " [routerLink]="[ '/anime',anime.mal_id] " routerLinkActive="router-link-active ">
+                    <img class="card-img-top " src="{{anime?.image_url}} " alt="Card image cap ">
+                    <div class="card-body ">
+                        <h5 class="card-title ">{{anime?.title}}</h5>
+                        <p class="card-text ">{{anime?.synopsis}}</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="#" class="card-link" [routerLink]="[ '/anime',anime.mal_id] " routerLinkActive="router-link-active ">View More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-40" *ngIf="showPagination">
+        <div class="has-text-centered text-center">
+            <pagination-controls class="my-pagination" (pageChange)="page=$event"></pagination-controls>
+        </div>
+    </div>
+</div>

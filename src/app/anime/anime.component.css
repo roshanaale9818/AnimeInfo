@@ -1,0 +1,64 @@
+* {
+    color: #ffffff;
+}
+
+p {
+    line-height: 1.8;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.title {
+    background: #464646;
+    padding: 10px 30px;
+}
+
+.padding-all {
+    padding: 0px 10px;
+}
+
+.alt-list {
+    list-style: none;
+    padding: 0px;
+}
+
+.sub-title {
+    border-bottom: 1px solid #eeeeee;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 4px 0 5px;
+    padding: 3px 0
+}
+
+.alt-title-description {
+    margin-top: 8px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.alt-title-description a {
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.alt-title-description span {
+    margin-left: 10px;
+    font-weight: normal;
+}
+
+.sub-title h4 {
+    font-size: 18px;
+}
+
+.top-detail {
+    position: relative;
+    padding: 10px 20px;
+    background: #464646;
+}
+
+.sub-head {
+    font-size: 20px;
+    margin-right: 30px;
+}

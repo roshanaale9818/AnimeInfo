@@ -1,0 +1,19 @@
+* {
+    color: #000000;
+    background: white;
+}
+
+.meta {
+    color: tomato;
+}
+
+.inner-wrapper {
+    /* display: block; */
+    padding-top: 50px;
+    text-align: center;
+    height: 100vh;
+}
+
+.errorimg {
+    height: 200px;
+}
